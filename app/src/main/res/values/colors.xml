@@ -7,7 +7,9 @@
     <color name="colorPrimaryLight">#CFD8DC</color>
     <color name="colorPrimaryText">#212121</color>
     <color name="colorSecondaryText">#757575</color>
+    <color name="colorThirdText">#BDBDBD</color>
     <color name="colorIcons">#FFFFFF</color>
     <color name="colorDivider">#BDBDBD</color>
+    <color name="color_primary_transparency">#87607d8b</color>
 
 </resources>

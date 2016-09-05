@@ -13,35 +13,38 @@ import com.muffin.thefmusic.R;
 import com.muffin.thefmusic.domain.Artists;
 import com.squareup.picasso.Picasso;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
-import java.util.zip.Inflater;
 
 /**
- * Created by StriderKeni on 8/30/16.
+ * Created by StriderKeni on 9/4/16.
  */
-public class HypedArtistsAdapter extends RecyclerView.Adapter<HypedArtistsAdapter.HypedArtistsViewHolder>{
+public class TopArtistsAdapter extends RecyclerView.Adapter<TopArtistsAdapter.TopArtistsViewHolder>{
 
     ArrayList<Artists> artists;
 
     Context context;
 
-    public HypedArtistsAdapter(Context context) {
+    public TopArtistsAdapter(Context context) {
         this.context = context;
         this.artists = new ArrayList<>();
     }
 
     @Override
-    public HypedArtistsViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public TopArtistsViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(context)
-                .inflate(R.layout.item_hyped_artists, parent, false);
-        return new HypedArtistsViewHolder(itemView);
+                .inflate(R.layout.item_top_artist, parent, false);
+        return new TopArtistsViewHolder(itemView);
     }
 
     @Override
-    public void onBindViewHolder(HypedArtistsViewHolder holder, int position) {
+    public void onBindViewHolder(TopArtistsViewHolder holder, int position) {
         Artists currentArtists = artists.get(position);
 
         holder.setArtistName(currentArtists.getName());
+        holder.setArtistPlayCount(currentArtists.getPlayCount());
+        holder.setArtistListeners(currentArtists.getListeners());
 
         if(currentArtists.getUrlMediumImage() != null) {
             holder.setArtistImage(currentArtists.getUrlMediumImage());
@@ -63,20 +66,32 @@ public class HypedArtistsAdapter extends RecyclerView.Adapter<HypedArtistsAdapte
         notifyItemRangeInserted(getItemCount() - 1, artists.size());
     }
 
-    public class HypedArtistsViewHolder extends RecyclerView.ViewHolder {
+    public class TopArtistsViewHolder extends RecyclerView.ViewHolder {
 
-        TextView artistName;
         ImageView artistImage;
+        TextView artistName;
+        TextView artistPlayCount;
+        TextView artistListeners;
 
-        public HypedArtistsViewHolder(View itemView) {
+        public TopArtistsViewHolder(View itemView) {
             super(itemView);
 
-            artistName = (TextView) itemView.findViewById(R.id.txt_name_artist);
-            artistImage = (ImageView) itemView.findViewById(R.id.img_artists);
+            artistImage = (ImageView) itemView.findViewById(R.id.img_artist);
+            artistName = (TextView) itemView.findViewById(R.id.txt_artist_name);
+            artistPlayCount = (TextView) itemView.findViewById(R.id.txt_play_count);
+            artistListeners = (TextView) itemView.findViewById(R.id.txt_listeners);
         }
 
         public void setArtistName(String name) {
             artistName.setText(name);
+        }
+
+        public void setArtistPlayCount(String playCount) {
+            artistPlayCount.setText(playCount);
+        }
+
+        public void setArtistListeners(String listeners){
+            artistListeners.setText(listeners);
         }
 
         public void setArtistImage (String url) {
@@ -91,6 +106,8 @@ public class HypedArtistsAdapter extends RecyclerView.Adapter<HypedArtistsAdapte
                     .load(R.drawable.artist_placeholder)
                     .into(artistImage);
         }
+
+
     }
 
 

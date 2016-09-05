@@ -1,4 +1,4 @@
-package com.muffin.thefmusic.ui;
+package com.muffin.thefmusic.ui.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -15,6 +15,7 @@ import com.muffin.thefmusic.io.LastFmApiAdapter;
 import com.muffin.thefmusic.io.LastFmApiService;
 import com.muffin.thefmusic.io.model.HypedArtistsResponse;
 import com.muffin.thefmusic.ui.adapter.HypedArtistsAdapter;
+import com.muffin.thefmusic.ui.itemOffsetDecoration;
 
 import java.util.ArrayList;
 

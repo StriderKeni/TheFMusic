@@ -1,10 +1,10 @@
 package com.muffin.thefmusic;
 
-import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import com.muffin.thefmusic.ui.HypedArtistsFragment;
+import com.muffin.thefmusic.ui.fragment.HypedArtistsFragment;
+import com.muffin.thefmusic.ui.fragment.TopArtistFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         if(savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction().add(R.id.main_container, new HypedArtistsFragment()).commit();
+            getSupportFragmentManager().beginTransaction().add(R.id.main_container, new TopArtistFragment()).commit();
         }
 
     }

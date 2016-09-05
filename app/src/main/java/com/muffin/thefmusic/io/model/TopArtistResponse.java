@@ -3,13 +3,12 @@ package com.muffin.thefmusic.io.model;
 import com.google.gson.annotations.SerializedName;
 import com.muffin.thefmusic.domain.Artists;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
- * Created by StriderKeni on 8/30/16.
+ * Created by StriderKeni on 9/4/16.
  */
-public class HypedArtistsResponse {
+public class TopArtistResponse {
 
     @SerializedName(JsonKeys.ARTISTS_RESULTS)
     HypedArtistsResult result;
